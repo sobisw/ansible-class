@@ -1,0 +1,12 @@
+---
+- name: This playbook will install NTP and restart the service and verify
+  hosts: all
+  tasks:
+      - name: Install NTP
+        yum: name=ntp update_cache=yes
+
+      - name: restart NTP service
+        service: name=ntpd state=restarted
+
+      - name: execute ntpd command to check status
+        command: service ntpd status
