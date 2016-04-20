@@ -1,0 +1,6 @@
+---
+# This is a simple playbook which will ping all the srevers
+- hosts: all
+  tasks:
+      - name: ping test
+        ping:
