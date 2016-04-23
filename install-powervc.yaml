@@ -1,0 +1,23 @@
+---
+
+- name: This playbook will install PowerVC in given system
+  hosts: all
+  vars:
+    download_dir: /root/powervc-build
+    download_path: http://pokgsa.ibm.com/projects/p/powervc/build/powervc-trunk/all/20160422-2237/powervc-install-x86-rhel-9.9.9.9.tgz
+  tasks: 
+  - name: Create directory
+    file: name={{ download_dir }} state=directory
+
+  - name: Downlaod PowerVC build
+    get_url: url={{ download_path }} dest={{ download_dir }}
+
+  - name: Unarchive PowerVC build
+    unarchive: src={{ download_dir }}/powervc-install-x86-rhel-9.9.9.9.tgz dest={{ download_dir }} copy=no
+
+  - name: Install PowerVC
+    command: "sh {{ download_dir }}/powervc-9.9.9.9/install -s standard"
+
+  - name: Check services are up
+    service: name=nova state=started
+
