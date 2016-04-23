@@ -10,8 +10,8 @@
 
 # Ex 1: Ungrouped hosts, specify before any group headers.
 
-9.47.80.37
 9.47.81.159
+9.47.80.37
 
 ## green.example.com
 ## blue.example.com
