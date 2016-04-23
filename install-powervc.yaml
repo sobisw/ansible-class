@@ -4,7 +4,7 @@
   hosts: all
   vars:
     download_dir: /root/powervc-build
-    download_path: http://pokgsa.ibm.com/projects/p/powervc/build/powervc-trunk/all/20160422-2237/powervc-install-x86-rhel-9.9.9.9.tgz
+    download_path: <URL_HIDDEN>
   tasks: 
   - name: Create directory
     file: name={{ download_dir }} state=directory
