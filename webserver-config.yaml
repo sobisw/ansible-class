@@ -1,0 +1,14 @@
+---
+
+- name: This playbook will configure webserver on RHEL 7
+  hosts: all
+  sudo: True
+  tasks:
+  - name: Install httpd
+    yum: name=httpd update_cache=yes
+
+  - name: Restart httpd serviece and verify
+    service: name=httpd state=restarted
+
+  - name: Copy index.html
+    copy: src=templates/index.html.j2 dest=/var/www/html/index.html
