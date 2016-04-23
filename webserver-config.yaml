@@ -2,7 +2,6 @@
 
 - name: This playbook will configure webserver on RHEL 7
   hosts: all
-  sudo: True
   tasks:
   - name: Install httpd
     yum: name=httpd update_cache=yes
