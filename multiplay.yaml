@@ -1,0 +1,18 @@
+---
+
+# This is a multiple play playbook
+
+- name: Check uptime of the system
+  hosts: all
+  tasks:
+    - shell: /usr/bin/uptime
+      register: result
+
+- name: Create user
+  hosts: all
+  vars:
+    user_name: so_biswas
+  tasks:
+    - user: name={{ user_name }} comment="sourav biswas" shell=/bin/bash
+      notify: restart sshd state=restarted
+
