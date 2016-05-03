@@ -1,0 +1,32 @@
+---
+# In this playbook we will assign value to some variable and print those
+
+- name: variable playbook
+  hosts: all
+  vars:
+    my_name: Sourav
+    my_surname: Biswas
+    my_age: 30
+    my_address: >
+        Hyderabad
+        India
+  vars_files:
+    - my_file.yaml
+  tasks:
+    - debug: msg="My name is {{ my_name }} {{ my_surname }}"
+
+    - debug: msg="My age is {{ my_age }}"
+
+    - debug: msg="My complete address {{ my_address }}"
+
+    - name: capture output of one command in variable
+      command: id -un
+      register: login
+
+    - debug: var=login
+    - debug: msg="The command is {{ login['cmd'] }}"
+    - debug: msg="Logged in user is {{ login.stdout }}"
+    - debug: var=login.rc
+
+    - name: printing variable from file
+      debug: var=my_var_from_file
