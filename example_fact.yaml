@@ -1,0 +1,12 @@
+---
+# This playbook will pront system facts and host local facts
+
+- name: printing facts and local facts
+  hosts: all
+  gather_facts: True
+
+  tasks:
+    - debug: var=ansible_distribution
+
+    - name: printing local facts
+      debug: var=ansible_local
