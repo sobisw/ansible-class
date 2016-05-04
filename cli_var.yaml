@@ -1,0 +1,11 @@
+---
+# this playbook will take command line
+# Usage: ansible-playbook cli_var.yaml -e 'message="This is Sourav"'
+
+- name: Take CLI input, usgae as above
+  hosts: ubuntu
+  vars:
+    message: No message available
+
+  tasks:
+    - debug: msg="{{ message }}"
