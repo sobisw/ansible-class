@@ -1,0 +1,14 @@
+---
+- name: install packages from list
+  hosts: ubuntu
+  tasks:
+    - name: install task
+      apt: pkg={{ item }}
+      with_items:
+        - cowsay
+        - tree 
+        - git
+        - nginx
+  handlers:
+    - name: restart nginx
+      service: name=nginx status=retsarted
