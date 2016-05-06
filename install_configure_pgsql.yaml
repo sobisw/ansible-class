@@ -1,0 +1,46 @@
+---
+# This playbook will install postgresql, configure user, create database
+- name: all about pgsql
+  hosts: ubuntu
+  vars_files:
+     - secrets.yml
+  vars:
+     database_name: my_db
+     database_user: sourav
+     proj_name: pg_example
+     venv_home: "{{ ansible_env.HOME }}"
+     venv_path: "{{ venv_home }}/{{ proj_name }}"
+  tasks:
+    - name: install PostgreSQL
+      apt: pkg={{ item }} update_cache=yes
+      with_items:
+         - git
+         - libjpeg-dev
+         - libpq-dev
+         - memcached
+         - postgresql
+         - python-dev
+         - python-pip
+         - python-psycopg2
+         - python-setuptools
+         - python-virtualenv
+         - supervisor
+
+    - name: install required python packages
+      pip: name={{ item }} virtualenv={{ venv_path }}
+      with_items:
+        - psycopg2
+ 
+    - name: create db user
+      postgresql_user:
+         name: "{{ database_user }}"
+         password: "{{ database_pass }}"
+      sudo: yes
+      sudo_user: postgres
+
+    - name: create database
+      postgresql_db:
+         name: "{{ database_name }}"
+         owner: "{{ database_user }}"
+      sudo: yes
+      sudo_user: postgres
