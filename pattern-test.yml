@@ -1,0 +1,34 @@
+---
+# This script is for testing different host pattern. Following are covered
+# groupname
+# all
+# Range
+# Exclusion
+
+- hosts: rhel
+  tasks:
+  - name: create an user named 'all1' in all hosts of specific group
+    user:
+      name: all1
+      comment: 'user in all hosts of specific group'
+
+- hosts: all
+  tasks:
+  - name: create user named 'hosts1' in all hosts
+    user: 
+      name: hosts1
+      comment: 'user in all hosts'
+
+- hosts: test-systems[0:0]
+  tasks: 
+  - name:  user create in first system of host group
+    user: 
+      name: first1
+      comment: 'user created in first system of host group'
+
+- hosts: test-systems:!9.47.81.159
+  tasks: 
+  - name: user execluded in specific system of any host group
+    user:
+      name: ex1
+      comment: 'not present in test1 system'
