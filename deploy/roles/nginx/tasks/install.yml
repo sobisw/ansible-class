@@ -1,0 +1,9 @@
+---
+# This script will install 'nginx' 
+- name: add official nginx repository
+  apt_repository: repo='deb http://nginx.org/packages/ubuntu/ lucid nginx'
+
+- name: install nginx
+  apt: name=nginx state=latest force=yes
+
+

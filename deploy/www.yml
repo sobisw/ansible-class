@@ -1,0 +1,11 @@
+---
+#www.yml: web server playbook
+- hosts: ubuntu
+  pre_tasks:
+    - name: pre-tasks
+      shell: echo 'starting configuration of web server'
+  roles:
+    - nginx
+  post_tasks:
+    - name: post tasks
+      shell: echo 'configuration complete'

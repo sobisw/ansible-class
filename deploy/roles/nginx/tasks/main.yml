@@ -1,0 +1,6 @@
+---
+# main.yml - include other yml files
+
+- include: install.yml
+- include: configure.yml
+- include: service.yml

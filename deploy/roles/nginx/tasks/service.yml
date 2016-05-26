@@ -1,0 +1,4 @@
+---
+# This script will restart nginx service
+- name: restart nginx service
+  service: name=nginx state=started

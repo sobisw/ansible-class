@@ -1,0 +1,5 @@
+---
+# main.yml - this file includes all dependency details
+
+dependencies:
+  - {role: base}
