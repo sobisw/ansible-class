@@ -1,0 +1,10 @@
+# default.conf template file
+# for some internal issue used nginx_hostname instead of fact: ansible_hostname as server_name
+server {
+  listen {{ nginx_port }};
+  server_name {{ nginx_hostname }};
+  location / {
+    root {{ nginx_root }};
+    index {{ nginx_index }};
+   }
+ }

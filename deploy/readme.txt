@@ -1,29 +1,33 @@
 =========================================================================================
-.
 ├── roles
 │   ├── base
-│   │   └── tasks
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   │   └── vars
 │   │       └── main.yml
 │   └── nginx
+│       ├── defaults
+│       │   └── main.yml
 │       ├── files
-│       │   ├── default.conf
 │       │   ├── index.html
 │       │   └── main.yml
 │       ├── handlers
 │       │   └── main.yml
 │       ├── meta
 │       │   └── main.yml
-│       └── tasks
-│           ├── configure.yml
-│           ├── install.yml
-│           ├── main.yml
-│           └── service.yml
+│       ├── tasks
+│       │   ├── configure.yml
+│       │   ├── install.yml
+│       │   ├── main.yml
+│       │   └── service.yml
+│       └── templates
+│           └── default.conf.j2
 ├── site.yml
+├── www.retry
 └── www.yml
-
-============================================================================================
+==========================================================================================
 
 1. Install nginx
 2. Configure
 
-Uisng roles
+Using roles, fatcs, variable, defaults, templates

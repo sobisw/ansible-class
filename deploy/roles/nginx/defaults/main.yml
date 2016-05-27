@@ -1,0 +1,6 @@
+# default variables
+
+nginx_port: 80
+nginx_root: /usr/share/nginx/html
+nginx_index: index.html
+nginx_hostname: 9.47.80.240
