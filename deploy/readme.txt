@@ -1,10 +1,32 @@
 =========================================================================================
+.
+├── group_vars
+│   └── all
+├── readme.txt
 ├── roles
 │   ├── base
 │   │   ├── tasks
 │   │   │   └── main.yml
 │   │   └── vars
 │   │       └── main.yml
+│   ├── mysql
+│   │   ├── defaults
+│   │   │   └── main.yml
+│   │   ├── files
+│   │   ├── handlers
+│   │   │   └── main.yml
+│   │   ├── meta
+│   │   │   └── main.yml
+│   │   ├── README.md
+│   │   ├── tasks
+│   │   │   └── main.yml
+│   │   ├── templates
+│   │   ├── tests
+│   │   │   ├── inventory
+│   │   │   └── test.yml
+│   │   └── vars
+│   │       ├── main.yml
+│   │       └── RedHat.yml
 │   └── nginx
 │       ├── defaults
 │       │   └── main.yml
