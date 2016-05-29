@@ -1,0 +1,7 @@
+---
+# Configure my.cnf template as per OS family
+
+- name: create mysql configuration file
+  template: src="my.cnf.j2" dest="{{ mysql_cnfpath }}" mode=0644
+  notify:
+    - restart mysql service

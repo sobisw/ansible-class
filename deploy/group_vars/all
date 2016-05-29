@@ -1,2 +1,2 @@
 ---
-mysql_bind: {{ ansible_default_ipv4.address }}
+mysql_bind: "{{ ansible_default_ipv4.address }}"

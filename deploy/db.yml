@@ -1,0 +1,6 @@
+---
+# database configuration file
+
+- hosts: ubuntu
+  roles:
+    - {role: mysql, mysql_bind: "{{ ansible_default_ipv4.address }}"}

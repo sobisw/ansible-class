@@ -1,0 +1,7 @@
+---
+# install script for Debian OS family
+
+- name: install mysql packge
+  apt:
+    name: "{{ mysql_pkg }}"
+    update_cache: yes
