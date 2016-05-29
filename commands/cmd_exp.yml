@@ -1,0 +1,27 @@
+---
+# command module - run shell command
+# expect - execute command and respond to prompt
+# in this example we will create a user and set password and then execute a ls on /tmp directory on remote node
+# pre-req - python-pexpect module is required
+
+# expect is not working 
+
+- hosts: ubuntu
+  vars: 
+    user_name: veer
+  tasks: 
+    - name: install pre-req
+      apt: name=python-pexpect update_cache=yes
+
+    - name:  create a user
+      user: name="{{ user_name }}" uid=2002
+
+    - expect:
+        command: passwd "{{ user_name }}"
+        responses:
+          (?i)password: "MySekretPa$$word"
+
+    - name: list all file in directory
+      command: ls -lrt
+      args: 
+        chdir: /tmp

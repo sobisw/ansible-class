@@ -1,0 +1,12 @@
+---
+# using raw module of ansile which runs command wihout using python
+# This module is use to communicate with host which has no Python installed or Python version is older. It can be used to install pre-req to run ansible commands
+# In this example we will run uptime and hostname commands
+
+- hosts: all
+  tasks: 
+    - name: run uptime command
+      raw: uptime
+
+    - name: run hostname command
+      raw: hostname

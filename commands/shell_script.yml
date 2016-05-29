@@ -1,0 +1,16 @@
+---
+# shell module run form /bin/sh and has access to all shell variable and can use all operators
+# script module will run a script in remote node
+
+- hosts: ubuntu
+  tasks:
+    - name: shell module example
+      shell: cat /etc/passwd | grep veer
+
+
+    - name: script module example, first step copy file to destination location
+      copy: src=/root/my.sh dest=/root/my.sh mode=777
+ 
+    - name: execute script
+      script: /root/my.sh
+
