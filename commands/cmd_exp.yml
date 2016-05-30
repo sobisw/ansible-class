@@ -8,13 +8,14 @@
 
 - hosts: ubuntu
   vars: 
-    user_name: veer
+    user_name: veera
   tasks: 
     - name: install pre-req
       apt: name=python-pexpect update_cache=yes
 
     - name:  create a user
-      user: name="{{ user_name }}" uid=2002
+#      user: name="{{ user_name }}" uid=2002
+      command: useradd "{{ user_name }}"
 
     - expect:
         command: passwd "{{ user_name }}"
