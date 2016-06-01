@@ -1,0 +1,14 @@
+---
+# defaults file for wordpress
+
+wp_srcdir: /home
+wp_docroot: /tmp
+wp_user: root
+wp_group: root
+wp_sitedir: site
+
+# db related variables
+wp_dbname: my_db
+wp_dbuser: ubuntu
+wp_dbpass: "passw0rd"
+wp_dbhost: "{{ ansible_default_ipv4.address }}"

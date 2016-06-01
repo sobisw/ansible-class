@@ -1,0 +1,9 @@
+---
+# php5-fpm install script
+
+- name:  install php5-fpm packages
+  apt:
+    name: "{{ item }}"
+  with_items: "{{ php5.packages }}"
+  notify:
+    - restart php5-fpm service

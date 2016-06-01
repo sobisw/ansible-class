@@ -1,2 +1,22 @@
 ---
 mysql_bind: "{{ ansible_default_ipv4.address }}"
+mysql:
+  databases:
+    fifalive:
+      state: present
+    fifanews:
+      state: present
+  users:
+    fifa: 
+      pass: passw0rd
+      host: '%'
+      priv: '*.*:ALL'
+      state: present
+
+nginx:
+  phpsites:
+    fifanews:
+      name: fifanews.com
+      port: 8080
+      doc_root: /var/www/fifanews
+
